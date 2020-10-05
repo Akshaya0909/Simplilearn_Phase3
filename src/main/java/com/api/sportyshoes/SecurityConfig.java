@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -33,8 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
         .authorizeRequests()
             .antMatchers("/**").authenticated() // These urls are allowed by any authenticated user
-        .and()
-            .httpBasic();
+        .and().httpBasic();
+        http.authorizeRequests().antMatchers( "/h2/**").permitAll();
         http.csrf().disable();
     }
 
@@ -108,6 +109,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
     return manager;
 }
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+       web
+            .ignoring()
+           .antMatchers("/h2/**");
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
