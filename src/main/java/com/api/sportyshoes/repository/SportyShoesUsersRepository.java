@@ -39,8 +39,8 @@ public interface SportyShoesUsersRepository extends JpaRepository<SportyShoesUse
 	//@Query("SELECT new com.api.sportyshoes.dto.NameInfoResponse(u.fname,u.lname p.name,p.price,p.qty) FROM SportyShoesUsers u JOIN u.products p WHERE p.date_of_purchase=?1 and p.category_name=?2")
 	//public List<NameInfoResponse> getJoinInformationbyDateandCategory(Date date_of_purchase,String category_name);
 	
-	@Query("SELECT u FROM SportyShoesUsers u WHERE u.firstname = :firstname")
-    public SportyShoesUsers getUserByUsername(@Param("firstname") String firstname);
+	//@Query("SELECT u FROM SportyShoesUsers u WHERE u.firstname = :firstname")
+    //public SportyShoesUsers getUserByUsername(@Param("firstname") String firstname);
 	
 	
 	
