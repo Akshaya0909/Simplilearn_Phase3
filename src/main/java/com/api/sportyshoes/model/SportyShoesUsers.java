@@ -53,9 +53,9 @@ public class SportyShoesUsers {
 	
 	@Column(name = "dateAdded")
 	private java.util.Date dateAdded;  
-	private String password;
-	private String role;
-	private boolean enabled;
+	//private String password;
+	//private String role;
+	//private boolean enabled;
 	
 	@OneToMany(targetEntity=SportyShoesProduct.class,cascade = CascadeType.ALL)
 	@JoinColumn(name="userproduct_fk",referencedColumnName="ID")
