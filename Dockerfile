@@ -1,9 +1,9 @@
-FROM java:8-jdk-alpine
+FROM maven:3.5.2-jdk-8
 
-COPY ./target/spring_boot_ecommerce_SportyShoes 0.0.1-SNAPSHOT.jar /usr/app/
+RUN mkdir -p /app
 
-WORKDIR /usr/app
+COPY . /app
 
-RUN sh -c 'touch spring_boot_ecommerce_SportyShoes 0.0.1-SNAPSHOT.jar'
+WORKDIR /app
 
-ENTRYPOINT ["java","-jar","spring_boot_ecommerce_SportyShoes 0.0.1-SNAPSHOT.jar"]
+CMD mvn spring-boot:run 
