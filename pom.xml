@@ -11,6 +11,7 @@
 	<groupId>com.api.sportyshoes</groupId>
 	<artifactId>spring_boot_ecommerce_SportyShoes</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>spring_boot_ecommerce_SportyShoes</name>
 	<description>application for an ecommerce portal</description>
 
