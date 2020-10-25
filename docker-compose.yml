@@ -16,9 +16,9 @@ services:
         ports:
             - '25826:25826'
         volumes:
-            - $PWD/conf.d/:/etc/logstash/conf.d/
+            - $PWD/:/etc/logstash
             - /var/log/:/var/log/
-        command: logstash -f /etc/logstash/conf.d/logstash-spring.conf
+        command: logstash -f /etc/logstash/logstash-spring.conf
         links: 
             - "elasticsearch:elasticsearch"
         depends_on:
